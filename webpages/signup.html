@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="icon" type="image/png" href="../images/icon/cobra.png">
+		<script src="../js/signup.js"></script>
 		<title>SerpentCharge-Sign Up</title>
 	</head>
 	<body>
@@ -10,7 +11,24 @@
 			<a href="../index.html" target="_self">Home</a>
 		</header>
 		<main>
-			
+			<h1>Sign Up</h1>
+			<form>
+				<input type="text" id="fname" name="fname" placeholder="First Name" required>
+				<input type="text" id="lname" name="lname" placeholder="Last Name" required>
+				<br>
+				<label><input type="radio" id="male" name="gender" value="male" required>Male</label>
+				<label><input type="radio" id="female" name="gender" value="female" required>Female</label>
+				<label><input type="radio" id="other" name="gender" value="other" required>Other</label>
+				<br>
+				<input type="email" id="email" placeholder="E-mail" required>
+				<br>
+				<input type="password" id="password" placeholder="Password" required>
+				<br>
+				<input type="password" id="r_password" placeholder="Retype Password" required onchange="checkPass()">
+				<br>
+				<input type="submit" value="Sign Up" onclick="return checkPass()">
+			</form>
+			<p>Already have an account? <a href="login.html">Log In</a></p>
 		</main>
 		<footer>
 			<p>&copy;SerpentCharge</p>
