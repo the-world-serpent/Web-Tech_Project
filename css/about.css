@@ -1,0 +1,14 @@
+h1{
+    color: #05386b;
+    font-size: 3em;
+    text-align: center;
+}
+p{
+    color: #05386b;
+}
+
+main>section{
+    text-align: center;
+    margin: 0% 10% 10%;
+    padding: 0% 10% 10%;
+}
