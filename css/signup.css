@@ -1,0 +1,27 @@
+main{
+    text-align: center;
+}
+
+#fname{
+    width: 10%;
+    margin: 1%;
+}
+#lname{
+    width: 10%;
+    margin: 1%;
+}
+#email{
+    width: 22%;
+    margin: 1%;
+}
+#password{
+    width: 22%;
+    margin: 1%;
+}
+#r_password{
+    width: 22%;
+    margin: 1%;
+}
+input[type="submit"]{
+    width: 22%;
+}

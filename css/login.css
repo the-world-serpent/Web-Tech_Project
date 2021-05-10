@@ -1,0 +1,15 @@
+main{
+    text-align: center;
+}
+
+#email{
+    width: 20%;
+    margin: 1%;
+}
+#password{
+    width: 20%;
+    margin: 1%;
+}
+input[type="submit"]{
+    width: 20%;
+}

@@ -24,14 +24,14 @@
 
 .links img{
     display: inline-block;
-    margin: 10%;
+    margin: 1% 10%;
     width: 20%;
 }
 
 .links{
     text-align: center;
     margin: 5%;
-    padding: 5%;
+    padding: 1%;
 }
 .offers{
     margin: 5%;
