@@ -1,7 +1,4 @@
-main{
-    margin: 0;
-    padding: 0;
-}
+
 .left{
     text-align: center;
 	width : 20%;
@@ -26,11 +23,13 @@ main{
 }
 
 .links img{
-    margin: auto;
-    width: 15%;
+    display: inline-block;
+    margin: 10%;
+    width: 20%;
 }
 
 .links{
+    text-align: center;
     margin: 5%;
     padding: 5%;
 }
@@ -39,15 +38,16 @@ main{
     padding: 5%;
 }
 .offers img{
+    display: block;
     width: 80%;
     margin: auto;
 }
-.offers>a{
+.offers a{
     margin: auto;
 }
 
 footer div{
-    font-size: 0.5em;
+    font-size: 0.5rem;
     display: inline-block;
     margin: 0.5%;
 }
