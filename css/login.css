@@ -2,7 +2,12 @@ main{
     text-align: center;
 }
 
-#email{
+form{
+    width: 50%;
+    margin: 0% auto;
+}
+
+/*#email{
     width: 20%;
     margin: 1%;
 }
@@ -12,4 +17,4 @@ main{
 }
 input[type="submit"]{
     width: 20%;
-}
+}*/
