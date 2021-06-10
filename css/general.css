@@ -18,9 +18,11 @@ body{
 }
 
 nav{
+    overflow: hidden;
+    display: block;
     width: 100%;
 }
-nav>div{
+nav>.home_nav{
     width: 50px;
     display: inline-block;
     margin: 0%;
@@ -39,6 +41,13 @@ nav a{
 	color : #05386b;
 	text-decoration : none;
 }
+.nonicon{
+    display: inline;
+}
+.right_nav{
+    display: inline;
+}
+
 nav a:hover{
     background-color: #379683;
 }
@@ -46,10 +55,6 @@ nav .active{
 	background-color : #05386b;
     color: #8ee4af;
 }
-
-
-
-
 
 input[type=text],input[type=email],input[type=password],textarea, select {
     width: 100%;
