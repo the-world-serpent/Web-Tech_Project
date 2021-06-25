@@ -1,0 +1,32 @@
+main{
+    text-align: center;
+    overflow : hidden;
+}
+
+form{
+    width: 50%;
+    margin: 0% auto;
+}
+#ph_no, #operator{
+	width : 49%;
+}
+
+section{
+	width : 49%;
+	float : left;
+}
+aside{
+	width : 49%;
+	float : right;
+}
+
+table{
+	margin : 0% auto;
+}
+table, th, td{
+	border : 1px solid black;
+}
+
+footer{
+	clear : both;
+}

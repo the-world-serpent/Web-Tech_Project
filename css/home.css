@@ -1,0 +1,60 @@
+main{
+    overflow: hidden;
+    margin-top: 1%;
+}
+
+.left{
+    text-align: center;
+	width : 20%;
+	float : left;
+}
+.center{
+	width : 60%;
+	float : left;
+}
+.right{
+    text-align: center;
+	width : 20%;
+	float : left;
+}
+.right img{
+    width: 90%;
+    margin: 5% 1% 1%;
+}
+.left img{
+    width: 90%;
+    margin: 5% 1% 1%;
+}
+
+.links img{
+    display: inline-block;
+    margin: 1% 10%;
+    width: 20%;
+}
+
+.links{
+    text-align: center;
+    margin: 5%;
+    padding: 1%;
+}
+.offers{
+    margin: 5%;
+    padding: 5%;
+}
+.offers img{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+.offers a{
+    margin: auto;
+}
+
+footer section{
+    text-align: center;
+}
+footer div{
+    font-size: 0.5rem;
+    display: inline-block;
+    margin: 0.5%;
+}
