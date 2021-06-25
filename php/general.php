@@ -2,5 +2,5 @@
 	$hname='localhost';
 	$db='webtech';
 	$uname='sam';
-	$pass='!Neo1248';
+	$pass='whatever you want';
 ?>
