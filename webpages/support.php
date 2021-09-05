@@ -16,15 +16,30 @@
 					<a href="../index.php" target="_self" id="home_icon"><img src="../images/icon/cobra.png" alt="home icon"/></a>
 				</div>
 				<div class="nonicon">
-					<a href="about.php" target="_self">About</a>
-					<a href="support.php" target="_self" class = "active">Support</a>
-					<a href="resources.php" target="_self">Resource</a>
+					<div class=left_nav id="nonadmin">
+						<a href="about.php" target="_self">About</a>
+						<a href="support.php" target="_self" class = "active">Support</a>
+						<a href="resources.php" target="_self">Resource</a>
+					</div>
+					<div class="left_nav" id="yesadmin">
+						<a href="plans.php" traget="_self">Plans</a>
+						<a href="transac.php" traget="_self">Transactions</a>
+						<a href="users.php" traget="_self">Users</a>
+						<a href="adminsignup.php" traget="_self">Admin Sign Up</a>
+					</div>
+					<?php
+						if(isset($_SESSION['admin']) && $_SESSION['admin']=="true"){
+							echo "<script>toggle_adminlogedin();</script>";
+						}else{
+							echo "<script>toggle_adminlogedout()</script>";
+						}
+					?>
 					<div class=right_nav id="div1">
 						<a href="login.php" target="_self">Login</a>
 						<a href="signup.php" target="_self">Sign Up</a>
 					</div>
 					<div class="right_nav" id="div2">
-						<span><?php echo $_SESSION['email']; ?></span>
+						<span><a href="changepassword.php"><?php echo $_SESSION['email']; ?></a></span>
 						<a href="../php/logout.php">Log Out</a>
 					</div>
 					<?php
@@ -39,6 +54,13 @@
 		</header>
 		<main>
 			<h1>Feedback</h1>
+			<p><?php
+				if(isset($_GET['msg'])){
+					if($_GET['msg']=="notlogedin") echo "Not Loged In";
+					elseif($_GET['msg']=="successful") echo "Thank You for the Feedback";
+					elseif($_GET['msg']=="notsuccessful") echo "Failed to Insert";
+				}
+			?></p>
 			<form method="GET" action="../php/feedback.php">
 				<label for="sub">Feedback Subject</label><br>
 				<input type="text" id="sub" name="sub" required><br>

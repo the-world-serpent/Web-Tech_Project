@@ -5,9 +5,10 @@
 		<meta charset="UTF-8">
 		<link rel="icon" type="image/png" href="../images/icon/cobra.png">
 		<link rel="stylesheet" href="../css/general.css">
-		<link rel="stylesheet" href="../css/about.css">
+		<link rel="stylesheet" href="../css/signup.css">
 		<script src="../js/navbar.js"></script>
-		<title>SerpentCharge-About</title>
+		<script src="../js/signup.js"></script>
+		<title>SerpentCharge-Admin Sign Up</title>
 	</head>
 	<body>
 		<header>
@@ -17,7 +18,7 @@
 				</div>
 				<div class="nonicon">
 					<div class=left_nav id="nonadmin">
-						<a href="about.php" target="_self" class = "active">About</a>
+						<a href="about.php" target="_self">About</a>
 						<a href="support.php" target="_self">Support</a>
 						<a href="resources.php" target="_self">Resource</a>
 					</div>
@@ -25,7 +26,7 @@
 						<a href="plans.php" traget="_self">Plans</a>
 						<a href="transac.php" traget="_self">Transactions</a>
 						<a href="users.php" traget="_self">Users</a>
-						<a href="adminsignup.php" traget="_self">Admin Sign Up</a>
+						<a href="adminsignup.php" traget="_self" class = "active">Admin Sign Up</a>
 					</div>
 					<?php
 						if(isset($_SESSION['admin']) && $_SESSION['admin']=="true"){
@@ -53,12 +54,41 @@
 			</nav>
 		</header>
 		<main>
-			<section>
-				<h1>ABOUT US</h1>
-				<p>This is a project work from the MCA 2019-2022 batch of the Heritage Institute of Technology.</p>
-				<p>None of the features will not work since SerpentCharge is a fictitious company but one is free to put in their
-				Credit/Debit Card information for the creator of the website.</p>
-			</section>
+			<h1>Admin Sign Up</h1>
+			<div>
+				<?php
+					if(!isset($_SESSION['admin']) || $_SESSION['admin']=="false"){
+						echo "<h3>Unauthorized access. You are not Admin</h3>";
+					}
+				?>
+			</div>
+			<?php if($_SESSION['admin']=="true"){ ?>
+			<p><?php
+				if(isset($_GET['msg'])){
+					if($_GET['msg']=="failedtosignup") echo "Failed to Sign Up Admin";
+					elseif($_GET['msg']=="userexists") echo "User Exists";
+				}
+			?></p>
+			<form method="post" action="../php/adminsignup.php">
+				<div>
+					<input type="text" id="fname" name="fname" placeholder="First Name" required>
+					<input type="text" id="lname" name="lname" placeholder="Last Name" required>
+				</div>
+				<br>
+				<input type="radio" id="male" name="gender" value="male" required><label for="male">Male</label>
+				<input type="radio" id="female" name="gender" value="female"><label for="female">Female</label>
+				<input type="radio" id="other" name="gender" value="other"><label for="other">Other</label>
+				<br>
+				<input type="email" id="email" name="email" placeholder="E-mail" required>
+				<br>
+				<input type="password" id="password" name="password" placeholder="Password" required>
+				<br>
+				<input type="password" id="r_password" name="r_password" placeholder="Retype Password" required onchange="check()">
+				<br>
+				<input type="submit" value="Sign Up" onclick="check()">
+			</form>
+			<p>Already have an account? <a href="login.php">Log In</a></p>
+			<?php } ?>
 		</main>
 		<footer>
 			<p>&copy;SerpentCharge</p>

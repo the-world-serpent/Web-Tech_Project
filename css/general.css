@@ -45,6 +45,9 @@ nav a{
     	overflow : hidden;
 	display: inline;
 }
+.left_nav{
+	display : inline;
+}
 .right_nav{
     float : right;
     margin-top : 0.9%;
@@ -55,7 +58,7 @@ nav a:hover{
 }
 nav .active{
 	background-color : #05386b;
-    color: #8ee4af;
+    	color: #8ee4af;
 }
 
 input[type=text],input[type=email],input[type=password],textarea, select {
@@ -79,6 +82,13 @@ input[type=submit] {
 }
 input[type=submit]:hover {
     background-color: #45a049;
+}
+
+table{
+	margin : 0% auto;
+}
+table, th, td{
+	border : 1px solid black;
 }
 
 footer{

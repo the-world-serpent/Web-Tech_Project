@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../css/mobile.css">
 		<script src="../js/navbar.js"></script>
 		<script src="../js/viewplan.js"></script>
-		<title>SerpentCharge</title>
+		<title>SerpentCharge-Mobile</title>
 	</head>
 	<body>
 		<header>
@@ -17,15 +17,30 @@
 					<a href="../index.php" target="_self" id="home_icon"><img src="../images/icon/cobra.png" alt="home icon"/></a>
 				</div>
 				<div class="nonicon">
-					<a href="about.php" target="_self">About</a>
-					<a href="support.php" target="_self">Support</a>
-					<a href="resources.php" target="_self">Resource</a>
+					<div class=left_nav id="nonadmin">
+						<a href="about.php" target="_self">About</a>
+						<a href="support.php" target="_self">Support</a>
+						<a href="resources.php" target="_self">Resource</a>
+					</div>
+					<div class="left_nav" id="yesadmin">
+						<a href="plans.php" traget="_self">Plans</a>
+						<a href="transac.php" traget="_self">Transactions</a>
+						<a href="users.php" traget="_self">Users</a>
+						<a href="adminsignup.php" traget="_self">Admin Sign Up</a>
+					</div>
+					<?php
+						if(isset($_SESSION['admin']) && $_SESSION['admin']=="true"){
+							echo "<script>toggle_adminlogedin();</script>";
+						}else{
+							echo "<script>toggle_adminlogedout()</script>";
+						}
+					?>
 					<div class=right_nav id="div1">
 						<a href="login.php" target="_self">Login</a>
 						<a href="signup.php" target="_self">Sign Up</a>
 					</div>
 					<div class="right_nav" id="div2">
-						<span><?php echo $_SESSION['email']; ?></span>
+						<span><a href="changepassword.php"><?php echo $_SESSION['email']; ?></a></span>
 						<a href="../php/logout.php">Log Out</a>
 					</div>
 					<?php
@@ -41,7 +56,17 @@
 		<main>
 			<h1>Mobile Recharge</h1>
 			<section>
-				<form method="post" action="mobile.php">	
+				<p><?php
+					if($_GET['msg']=="notlogedin"){
+						echo "Not Loged In. Log In to proceed.";
+					}elseif($_GET['msg']=="tableconnectionfailed"){
+						echo "Cannot connect to Table";
+					}elseif($_GET['msg']=="transactionSuccessful"){
+						echo "Transaction Successful";
+					}
+				?></p>
+				<form method="post" action="../php/transaction_mobile.php">
+					
 					<input type="text" id="ph_no" name="ph_no" pattern="[0-9]{10}" placeholder="Phone Number" required>
 					<select id="operator" name="operator" required>
 						<option value="" selected>Select Operator</option>
@@ -52,7 +77,7 @@
 					</select><br>
 					<label><input type="radio" id="prepaid" name="plan_type" value="Prepaid" required>Prepaid</label>
 					<label><input type="radio" id="postpaid" name="plan_type" value="Postpaid">Postpaid</label><br>
-					<input type="number" placeholder=Amount required><br>
+					<input type="number" name="amount" placeholder=Amount required><br>
 					<input type="submit" value="Proceed To Pay" name="main">
 				</form>
 			</section>
@@ -95,7 +120,7 @@
 							$result=$conn->query($query);
 							if(!$result) echo "Querying failed";
 							
-							echo '<script>console.log("tag working");removeForm();</script>';
+							echo '<script>removeForm();</script>';
 							
 							if ($result->num_rows > 0) {
 								echo "<table><tr><th>Amount</th><th>Type</th><th>Description</th><th>Validity</th></tr>";

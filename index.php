@@ -16,16 +16,30 @@
 					<a href="index.php" target="_self" id="home_icon"><img src="images/icon/cobra.png" alt="home icon"/></a>
 				</div>
 				<div class="nonicon">
-					<a href="webpages/about.php" target="_self">About</a>
-					<a href="webpages/support.php" target="_self">Support</a>
-					<a href="webpages/resources.php" target="_self">Resource</a>
-					
-					<div class="right_nav" id="div1">
+					<div class=left_nav id="nonadmin">
+						<a href="webpages/about.php" target="_self">About</a>
+						<a href="webpages/support.php" target="_self">Support</a>
+						<a href="webpages/resources.php" target="_self">Resource</a>
+					</div>
+					<div class="left_nav" id="yesadmin">
+						<a href="webpages/plans.php" traget="_self">Plans</a>
+						<a href="webpages/transac.php" traget="_self">Transactions</a>
+						<a href="webpages/users.php" traget="_self">Users</a>
+						<a href="webpages/adminsignup.php" traget="_self">Admin Sign Up</a>
+					</div>
+					<?php
+						if(isset($_SESSION['admin']) && $_SESSION['admin']=="true"){
+							echo "<script>toggle_adminlogedin();</script>";
+						}else{
+							echo "<script>toggle_adminlogedout()</script>";
+						}
+					?>
+					<div class=right_nav id="div1">
 						<a href="webpages/login.php" target="_self">Login</a>
 						<a href="webpages/signup.php" target="_self">Sign Up</a>
 					</div>
 					<div class="right_nav" id="div2">
-						<span><?php echo $_SESSION['email']; ?></span>
+						<span><a href="webpages/changepassword.php"><?php echo $_SESSION['email']; ?></a></span>
 						<a href="php/logout.php">Log Out</a>
 					</div>
 					<?php
